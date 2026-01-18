@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Qu'est ce qu'une machine virtuelle</title>
+        <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">SAE S1.03</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SAE S1.03</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../index.html">Accueil</a>
+                            </li>
+                            <li>
+                                <hr class="navbar-divider">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="definition.html">Qu'est ce qu'une machine virtuelle</a>
+                            </li>
+                            <li>
+                                <hr class="navbar-divider">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="installation-vm.html">Installation de la VM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="installation-apache.html">Installation de apache</a>
+                            </li>
+                            <li>
+                                <hr class="navbar-divider">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../site/conception.html">Conception du site</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="box">
+            <h1>Qu'est ce qu'une Machine Virtuelle</h1>
+            
+            <section>
+                <div>
+                    <p class="important">Bienvenue dans cette présentation sur la virtualisation.</p>
+                    <p>Avant de comprendre la machine virtuelle, il faut définir ce qu'est un ordinateur : c'est un appareil électronique capable de traiter des données et d'exécuter des tâches grâce à deux composants essentiels :</p>
+                    <ul>
+                        <li><strong>Le Hardware :</strong> La partie physique (CPU, RAM, Disque dur).</li>
+                        <li><strong>Le Software :</strong> Les programmes et le système d'exploitation qui contrôle le matériel.</li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h4>Qu'est-ce qu'une VM ?</h4>
+                    <p>Une <strong>Machine Virtuelle (VM)</strong> est un ordinateur logiciel qui fonctionne à l'intérieur d'un ordinateur physique. C'est un "ordinateur dans l'ordinateur" qui possède son propre système d'exploitation (comme <strong>Ubuntu</strong>), sa mémoire et son stockage.</p>
+                </div>
+
+                <div>
+                    <h4>Le rôle de l'Hyperviseur</h4>
+                    <p>Les machines virtuelles sont créées par un logiciel appelé <strong>Hyperviseur</strong>. Son rôle est de partager les ressources du processeur et de la RAM de l'ordinateur réel. Des logiciels comme <strong>VirtualBox</strong> ou <strong>VMware</strong> sont des hyperviseurs.</p>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h4>Pourquoi l'utiliser dans notre projet ?</h4>
+                    <p>Les VM sont très utiles pour exécuter différents systèmes d'exploitation sur une seule machine et tester des logiciels en toute sécurité.</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <p class="important">Les Avantages :</p>
+                            <ul>
+                                <li><strong>Flexibilité :</strong> Gain de temps et économie de matériel physique.</li>
+                                <li><strong>Sécurité :</strong> Chaque VM est isolée ; une erreur dans la VM n'affecte pas votre PC.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="important">Les Inconvénients :</p>
+                            <ul>
+                                <li><strong>Ressources :</strong> Elles consomment beaucoup de RAM et d'espace disque.</li>
+                                <li><strong>Performance :</strong> Elles peuvent être plus lentes qu'un ordinateur réel.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h4>Notre avis sur cette technologie</h4>
+                    <p>Selon nous, la machine virtuelle est un outil <strong>simple et puissant</strong>. Pour notre SAÉ, cela a été indispensable : cela nous a permis de simuler un environnement serveur professionnel sur nos ordinateurs personnels sans prendre aucun risque technique.</p>
+                </div>
+            </section>
+        </div>
+        <div class="footer-container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3  border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" aria-label="Bootstrap">
+                        <svg class="bi" width="30" height="24" aria-hidden="true"><use xlink:href="#bootstrap"></use></svg>
+                    </a> <span class="mb-3 mb-md-0 text-body-secondary">Ce site est une conception de SABIN Nathan, DAR YAZID Ibrahim et ELOUADI Marwan</span>
+                </div>
+                <div class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <img src="../assets/img/u-paris.png" width="48" height="48">
+                </div>
+            </footer>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    </body>
+</html>

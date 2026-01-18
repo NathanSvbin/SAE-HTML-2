@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>L'installation de la machine virtuelle</title>
+        <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">SAE S1.03</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SAE S1.03</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../index.html">Accueil</a>
+                            </li>
+                            <li>
+                                <hr class="navbar-divider">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="definition.html">Qu'est ce qu'une machine virtuelle</a>
+                            </li>
+                            <li>
+                                <hr class="navbar-divider">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="installation-vm.html">Installation de la VM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="installation-apache.html">Installation de apache</a>
+                            </li>
+                            <li>
+                                <hr class="navbar-divider">
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../site/conception.html">Conception du site</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="box">
+            <h1>Installation de la Machine Virtuelle</h1>
+
+            <section>
+                <h2>Installation et Configuration</h2>
+                <h4>1. Créer la "boîte" (la Machine Virtuelle)</h4>
+                <p>
+                    Tout commence dans VirtualBox. J'ai cliqué sur <strong>"Nouvelle"</strong> pour créer ma machine. Comme on le voit sur ma capture, j'ai choisi le nom "Ubuntu" et j'ai séléctionné l'image ISO <code>ubuntu-24.04.3-desktop-amd64.iso</code> que j'avais téléchargée.
+                </p>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <img class="screen" src="../assets/img/config-ubuntu.png" alt="Création de la VM">
+                    </div>
+                </div>
+
+
+                <div class="mb-5">
+                    <h4>2. Booster les performances</h4>
+                    <p>
+                        Pour que ma machine ne rame pas, je suis allé dans les réglages système :
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                                <strong>La RAM :</strong> J'ai mis le curseur à <strong>8 Go</strong>. C'est large, mais ça permet de faire tourner le serveur et mes outils de code en même temps.
+                            <img class="screen" src="../assets/img/config-ram.png" alt="Réglage RAM">
+                        </div>
+                        <div class="col-md-6">
+                                <strong>Le Processeur :</strong> J'ai alloué <strong>10 CPU</strong>. Avec ça, l'installation d'Ubuntu et les futures mises à jour se font hyper rapidement.
+                            <img class="screen" src="../assets/img/config-proc.png" alt="Réglage CPU">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="my-5">
+
+            <section>
+                <h2>Configuration des utilisateurs</h2>
+                <p>Pour administrer mon système de manière professionnelle, on a mis mis en place une structure multi-utilisateurs :</p>
+                <ul>
+                    <li>Nous avons créé un groupe nommé BinomeG5 pour organiser les accès de mon équipe.</li>
+                    <div class="cmd">sudo groupadd BinomeG5</div>
+
+                    <li>Nous avons créé deux comptes standards, BinomeG5_1 et BinomeG5_2, pour les tâches de développement courantes.</li>
+                    <div class="cmd">sudo adduser BinomeG5_1 --allow-bad-names<br>sudo adduser BinomeG5_2 --allow-bad-names<br>sudo usermod -aG BinomeG5 BinomeG5_1<br>sudo usermod -aG BinomeG5 BinomeG5_2</div>
+
+                    <li>Nous avons créé le compte admin_Gr103_BinomeG5. Je l'ai ajouté au groupe sudo pour lui donner les droits d'administration.</li>
+                    <div class="cmd">sudo adduser admin_Gr103_BinomeG5 --allow-bad-names<br>sudo usermod -aG sudo admin_Gr103_BinomeG5<br>sudo usermod -aG BinomeG5 admin_Gr103_BinomeG5</div>
+
+                    <li>Comme nous avons utilisé des majuscules dans mes noms d'utilisateurs, j'ai dû utiliser l'option --allow-bad-names pour passer les restrictions de Linux.</li>
+                </ul>
+                <p>Enfin, j'ai personnalisé mon invite de commande pour qu'elle affiche mon nom d'utilisateur. En modifiant le fichier .bashrc de chaque compte, j'ai rendu mon environnement plus clair : je sais désormais instantanément quel utilisateur est actif dans le terminal.</p>
+                <div class="cmd">nano ~/.bashrc</div>
+                <span class="important">PS1="\u > "</span>
+                <div class="cmd">source ~/.bashrc</div>
+                <h4>Images des résultats dans le cmd pour les utilisateurs</h4>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <img class="screen" src="../assets/img/cmd-admin.png">
+                    </div>
+                    <div class="col-md-4">
+                        <img class="screen" src="../assets/img/cmd-binome1.png">
+                    </div>
+                    <div class="col-md-4">
+                        <img class="screen" src="../assets/img/cmd-binome2.png">
+                    </div>
+                </div>
+                
+            </section>
+
+
+        </div>
+        <div class="footer-container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3  border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" aria-label="Bootstrap">
+                        <svg class="bi" width="30" height="24" aria-hidden="true"><use xlink:href="#bootstrap"></use></svg>
+                    </a> <span class="mb-3 mb-md-0 text-body-secondary">Ce site est une conception de SABIN Nathan, DAR YAZID Ibrahim et ELOUADI Marwan</span>
+                </div>
+                <div class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <img src="../assets/img/u-paris.png" width="48" height="48">
+                </div>
+            </footer>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    </body>
+</html>

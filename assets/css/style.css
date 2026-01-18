@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Irish+Grover&display=swap');
+
+body {
+    background-color: #E8EAE9 !important; 
+    color: #5C3A21 !important;
+}
+
+.navbar-brand {
+    color: #BC8532 !important;
+    font-weight: bold;
+    font-family: "Irish Grover";
+}
+
+.navbar {
+    background-color: #E6DED1;
+    border-bottom: #BC8532 2px solid;
+}
+
+.footer-container {
+    bottom: 0;
+    justify-self: anchor-center;
+    width: 100%;
+    background-color: #E6DED1;
+    margin-top: 10px;
+    border-top: #BC8532 1px solid;
+}
+
+#box {
+    background-color: #FDFDFD;
+    width: 100%;
+    max-width: 80%;
+    margin: 2vh 2vw;
+    padding: 4vh 3vw;
+    border: solid #BC8532 3px;
+    border-radius: 10px;
+    justify-self: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.offcanvas {
+    background-color: #E6DED1 !important;
+    color: #5C3A21 !important;
+}
+
+.nav-link {
+    color: #5C3A21 !important;
+}
+
+.nav-link:hover {
+    color: #BC8532 !important;
+}
+
+.active {
+    color: #BC8532 !important;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem !important;
+    color: #8C5B30;
+    font-family: "Irish Grover";
+}
+
+.cmd {
+    background-color: #300a24; 
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    border: #BC8532 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.important {
+    font-weight: bolder;
+    font-size: larger;
+    color: #8C5B30;
+}
+
+.screen {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border: #BC8532 2px solid;
+    border-radius: 0.5rem;
+}
+
+h4 {
+    margin-top: 2vw !important;
+    color: #BC8532;
+}
+
+hr {
+    border: none;
+    border-top: 3px solid #BC8532;
+    opacity: 0.6;
+    margin: 30px 0;
+}
